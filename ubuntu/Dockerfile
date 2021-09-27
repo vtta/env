@@ -14,14 +14,14 @@ RUN apt-get update && apt-get install -y software-properties-common lsb-release 
     && rm -rf /var/lib/apt/lists/* \    
     && update-alternatives --set editor /usr/bin/nvim \
     && echo "https_proxy = ${https_proxy}\nhttp_proxy = ${http_proxy}\nftp_proxy = ${ftp_proxy}" >> /etc/wgetrc 
-# gcc-11
-RUN  add-apt-repository ppa:ubuntu-toolchain-r/test && sudo apt-get update && apt-get install -y gcc-11 \
-    && rm -rf /var/lib/apt/lists/* 
-# llvm 14
-ENV llvm_version=14
-RUN wget https://apt.llvm.org/llvm.sh && bash llvm.sh ${llvm_version} && rm llvm.sh \
-    && sudo apt-get update && apt-get install -y clang-format clang-tidy \
-    && rm -rf /var/lib/apt/lists/* 
+# # gcc-11
+# RUN  add-apt-repository ppa:ubuntu-toolchain-r/test && sudo apt-get update && apt-get install -y gcc-11 \
+#     && rm -rf /var/lib/apt/lists/* 
+# # llvm 14
+# ENV llvm_version=14
+# RUN wget https://apt.llvm.org/llvm.sh && bash llvm.sh ${llvm_version} && rm llvm.sh \
+#     && sudo apt-get update && apt-get install -y clang-format clang-tidy \
+#     && rm -rf /var/lib/apt/lists/* 
 # additional tools
 RUN apt-get update && apt-get install -y aria2 bmon cmake doxygen gnuplot-nox golang htop httrack hugo neofetch imagemagick ninja-build nmap pandoc parallel poppler-utils tmux \
     && rm -rf /var/lib/apt/lists/* 

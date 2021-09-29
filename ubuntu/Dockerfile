@@ -10,7 +10,7 @@ RUN sed -i 's/archive.ubuntu.com/ftp.cuhk.edu.hk\/pub\/Linux/g' /etc/apt/sources
     && sed -i 's/security.ubuntu.com/ftp.cuhk.edu.hk\/pub\/Linux/g' /etc/apt/sources.list \
     && echo "Acquire::http::Proxy \"${http_proxy}\";\nAcquire::https::Proxy \"${https_proxy}/\";" > /etc/apt/apt.conf.d/99proxy
 # utils
-RUN apt-get update && apt-get install -y software-properties-common lsb-release apt-utils wget bash sudo curl git zsh build-essential neovim unzip \
+RUN apt-get update && apt-get install -y software-properties-common lsb-release apt-utils wget bash sudo curl git zsh build-essential neovim unzip xz-utils \
     && rm -rf /var/lib/apt/lists/* \    
     && update-alternatives --set editor /usr/bin/nvim \
     && echo "https_proxy = ${https_proxy}\nhttp_proxy = ${http_proxy}\nftp_proxy = ${ftp_proxy}" >> /etc/wgetrc 
